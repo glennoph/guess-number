@@ -2,8 +2,9 @@ package go.learnspring;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-//import javax.annotation.PostConstruct;
-//import javax.annotation.PreDestroy;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 
 public class GameImpl implements Game {
 
@@ -22,7 +23,7 @@ public class GameImpl implements Game {
         this.numberGenerator = numberGenerator;
     }
 
-    //@PostConstruct
+    @PostConstruct
     @Override
     public void reset() {
         log.info("reset - postConstruct");
@@ -34,7 +35,7 @@ public class GameImpl implements Game {
         log.debug("number: {}", number);
     }
 
-    //@PreDestroy
+    @PreDestroy
     public void preDestroy() {
         log.info("preDestroy");
     }
