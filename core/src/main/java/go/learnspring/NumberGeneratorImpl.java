@@ -16,13 +16,13 @@ public class NumberGeneratorImpl implements NumberGenerator {
     @Override
     public int next() {
         int nextNum = random.nextInt(maxNumber);
-        log.debug(String.valueOf(nextNum));
+        log.debug("nextNum: {}", nextNum);
         return nextNum;
     }
 
     @Override
     public int getMaxNumber() {
-        log.debug(String.valueOf(maxNumber));
+        log.debug("maxNumber: {}", maxNumber);
         return maxNumber;
     }
 }

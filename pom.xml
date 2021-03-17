@@ -20,6 +20,7 @@
 <!--        <spring.version>5.0.5</spring.version>-->
         <annotation-api.version>1.3.2</annotation-api.version>
         <slf4j-api.version>1.7.30</slf4j-api.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -55,10 +56,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <target>${maven.compiler.target}</target>
-                    <source>${maven.compiler.source}</source>
+                    <release>${maven.compiler.target}</release>
                 </configuration>
             </plugin>
         </plugins>
