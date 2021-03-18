@@ -6,7 +6,7 @@
     </appender>
 
     <logger name="go.learnspring" level="debug"/>
-    <logger name="org.springframework" level="info"/>
+    <logger name="org.springframework" level="debug"/>
 
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
