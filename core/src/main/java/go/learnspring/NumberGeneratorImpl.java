@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
-@Component
 public class NumberGeneratorImpl implements NumberGenerator {
 
     private static final Logger log = LoggerFactory.getLogger(NumberGeneratorImpl.class);
