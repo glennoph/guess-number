@@ -6,9 +6,10 @@
 
     <groupId>go.learnspring</groupId>
     <artifactId>guess-number</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${revision}</version>
     <modules>
         <module>core</module>
+        <module>console</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -21,6 +22,7 @@
         <annotation-api.version>1.3.2</annotation-api.version>
         <slf4j-api.version>1.7.30</slf4j-api.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <revision>1.0-SNAPSHOT</revision>
     </properties>
 
     <dependencyManagement>
