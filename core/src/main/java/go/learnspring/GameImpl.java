@@ -53,7 +53,7 @@ public class GameImpl implements Game {
 
     @Override
     public void setGuess(int guess) {
-
+        this.guess = guess;
     }
 
     @Override

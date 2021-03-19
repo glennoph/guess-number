@@ -4,3 +4,7 @@
 /core/target/
 /core/core.iml
 
+/console/target/
+/*/target
+/*/*.iml
+
