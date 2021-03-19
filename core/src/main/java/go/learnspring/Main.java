@@ -25,9 +25,13 @@ public class Main {
         // get random number
         int number = numberGenerator.next();
 
-        Game game = context.getBean(Game.class);
+        // get message generator bean
+        MessageGenerator messageGenerator =
+                context.getBean(MessageGenerator.class);
 
-        game.reset();
+        // get main message
+        log.info("getMainMessage: {}", messageGenerator.getMainMessage());
+        log.info("getResultMessage: {}", messageGenerator.getResultMessage());
 
 
         // close container
