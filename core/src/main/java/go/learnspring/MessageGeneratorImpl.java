@@ -24,13 +24,26 @@ public class MessageGeneratorImpl implements MessageGenerator {
 
     @Override
     public String getMainMessage() {
-        log.debug("getMainMessage");
-        return "getMainMessage called";
+        return "Number is between "
+                + game.getSmallest()
+                + " and "
+                + game.getLargest()
+                + " Guess number:"
+                ;
     }
 
     @Override
     public String getResultMessage() {
-        log.debug("getResultMessage");
-        return "getResultMessage called";
+
+        if (game.isGameWon())
+            return "Guess is correct. Number was " + game.getNumber();
+        if (game.isGameLost())
+            return "Guess is not correct. Number was " + game.getNumber();
+        if (!game.isValidNumberRange())
+            return "Invalid number range";
+        if (game.getRemainingGuesses() == guessCount)
+            return "What is your first guess";
+        String direction = (game.getGuess() < game.getNumber())? "Higher": "Lower";
+        return direction + " ... you have " + game.getRemainingGuesses() + " guesses left";
     }
 }
