@@ -9,10 +9,10 @@ import org.springframework.context.annotation.*;
 @PropertySource("classpath:game.properties")
 public class AppConfig {
 
-    @Value("${game.maxNumber}")
+    @Value("${game.maxNumber:1000}")
     private int maxNumber;
 
-    @Value("${game.guessCount}")
+    @Value("${game.guessCount:20}")
     private int guessCount;
 
     public int getMaxNumber() {
