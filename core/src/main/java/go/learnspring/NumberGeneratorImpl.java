@@ -2,6 +2,7 @@ package go.learnspring;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
@@ -12,18 +13,17 @@ public class NumberGeneratorImpl implements NumberGenerator {
 
     private final Random random = new Random();
 
-    private int maxNumber = 50;
+    @Autowired
+    private Game game;
 
     @Override
     public int next() {
-        int nextNum = random.nextInt(maxNumber);
+        int nextNum = random.nextInt(game.getMaxNumber());
         log.debug("nextNum: {}", nextNum);
         return nextNum;
     }
 
-    @Override
     public int getMaxNumber() {
-        log.debug("maxNumber: {}", maxNumber);
-        return maxNumber;
+        return game.getMaxNumber();
     }
 }

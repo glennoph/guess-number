@@ -1,12 +1,15 @@
 package go.learnspring;
 
+import go.learnspring.config.AppConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+
 
 public class GameImpl implements Game {
 
@@ -15,7 +18,9 @@ public class GameImpl implements Game {
     @Autowired
     private NumberGenerator numberGenerator;
 
-    private int guessCount = 10;
+    @Autowired
+    private AppConfig appConfig;
+
     private int number;
     private int guess;
     private int smallest;
@@ -30,8 +35,8 @@ public class GameImpl implements Game {
         log.info("reset - postConstruct");
         smallest = 0;
         guess = 0;
-        remainingGuesses = guessCount;
-        largest = numberGenerator.getMaxNumber();
+        remainingGuesses = getGuessCount();
+        largest = getMaxNumber();
         number = numberGenerator.next();
         log.debug("number: {}", number);
     }
@@ -69,6 +74,16 @@ public class GameImpl implements Game {
     @Override
     public int getRemainingGuesses() {
         return remainingGuesses;
+    }
+
+    @Override
+    public int getGuessCount() {
+        return appConfig.getGuessCount();
+    }
+
+    @Override
+    public int getMaxNumber() {
+        return appConfig.getMaxNumber();
     }
 
     @Override

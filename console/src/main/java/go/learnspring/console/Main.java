@@ -1,6 +1,6 @@
 package go.learnspring.console;
 
-import go.learnspring.AppConfig;
+import go.learnspring.config.AppConfig;
 import go.learnspring.MessageGenerator;
 import go.learnspring.NumberGenerator;
 import org.slf4j.Logger;
