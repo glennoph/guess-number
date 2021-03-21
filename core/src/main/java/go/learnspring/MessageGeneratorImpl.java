@@ -1,16 +1,14 @@
 package go.learnspring;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
+@Slf4j
 @Component
 public class MessageGeneratorImpl implements MessageGenerator {
-
-    private static final Logger log = LoggerFactory.getLogger(MessageGeneratorImpl.class);
 
     @Autowired
     private Game game;
@@ -19,8 +17,6 @@ public class MessageGeneratorImpl implements MessageGenerator {
     public void init() {
         log.info("game: {}", game);
     }
-
-
 
     @Override
     public String getMainMessage() {

@@ -1,6 +1,9 @@
 package go.learnspring;
 
 import go.learnspring.config.AppConfig;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +14,13 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+@Slf4j
+@Getter
 @Component
 public class GameImpl implements Game {
 
-    private static final Logger log = LoggerFactory.getLogger(GameImpl.class);
-
     @Autowired
+    @Getter(AccessLevel.NONE)
     private NumberGenerator numberGenerator;
 
     @Autowired
@@ -47,35 +51,12 @@ public class GameImpl implements Game {
         log.info("preDestroy");
     }
 
-    @Override
-    public int getNumber() {
-        return number;
-    }
-
-    @Override
-    public int getGuess() {
-        return guess;
-    }
 
     @Override
     public void setGuess(int guess) {
         this.guess = guess;
     }
 
-    @Override
-    public int getSmallest() {
-        return smallest;
-    }
-
-    @Override
-    public int getLargest() {
-        return largest;
-    }
-
-    @Override
-    public int getRemainingGuesses() {
-        return remainingGuesses;
-    }
 
     @Override
     public int getGuessCount() {
@@ -102,10 +83,6 @@ public class GameImpl implements Game {
         remainingGuesses--; // decr
     }
 
-    @Override
-    public boolean isValidNumberRange() {
-        return validNumberRange;
-    }
 
     @Override
     public boolean isGameWon() {
